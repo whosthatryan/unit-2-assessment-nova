@@ -6,10 +6,10 @@ const PORT = 3000;
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 
-const mongoURI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI;
 const db = mongoose.connection;
 
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', mongoURI));
