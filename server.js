@@ -30,6 +30,7 @@ app.use(methodOverride('_method'));
 const todosController = require('./controllers/todos.js');
 app.use('/todos', todosController);
 
-app.listen(PORT, ()=>{
-    console.log('ayyyy im workin heeyahhh')
+app.listen(process.env.PORT || 3000, ()=>{
+    console.log('ayyyy im workin heeyahhh');
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   })
