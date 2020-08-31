@@ -12,7 +12,7 @@ const db = mongoose.connection;
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', mongoURI));
+db.on('connected', () => console.log('mongo connected: ', MONGO_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 db.on( 'open' , ()=>{
@@ -32,5 +32,4 @@ app.use('/todos', todosController);
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log('ayyyy im workin heeyahhh');
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   })
