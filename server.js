@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 
@@ -19,7 +19,7 @@ db.on( 'open' , ()=>{
     console.log('Connection made!');
   });
 
-const Todo = require('./models/todos.js');
+// const Todo = require('./models/todos.js');
 
 app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'jsx');
